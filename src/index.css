@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+#root {
+  /* padding: 5px; */
+  box-shadow: 4px 4px 28px 13px rgba(34, 60, 80, 0.2);
+  max-width: 1240px;
+  background-color: #fff;
+  width: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

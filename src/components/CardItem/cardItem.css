@@ -1,0 +1,24 @@
+.ant-descriptions-view {
+  padding-top: 10px;
+}
+
+.ant-descriptions-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-descriptions .ant-descriptions-row > th,
+:where(.css-dev-only-do-not-override-k7429z).ant-descriptions .ant-descriptions-row > td {
+  padding-bottom: 0;
+}
+
+:where(.css-dev-only-do-not-override-k7429z).ant-card .ant-card-meta-description {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+}
+
+:where(.css-dev-only-do-not-override-k7429z).ant-card .ant-card-meta-detail > div:not(:last-child) {
+  font-weight: bold;
+  font-size: 18px;
+}

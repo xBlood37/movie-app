@@ -1,0 +1,11 @@
+.search-form {
+  padding: 12px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
