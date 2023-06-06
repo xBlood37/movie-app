@@ -22,3 +22,28 @@
   font-weight: bold;
   font-size: 18px;
 }
+
+.rating-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating-cycle {
+  align-items: center;
+  align-self: flex-start;
+  border: 3px solid rgba(102, 233, 0);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  min-width: 30px;
+  padding: 0;
+  height: 60px;
+  width: 60px;
+}
+
+.vote-average {
+  padding: 10px;
+}

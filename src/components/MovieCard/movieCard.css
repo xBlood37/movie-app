@@ -4,5 +4,6 @@
   align-items: baseline;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
+  grid-auto-flow: row;
   gap: 28px;
 }
