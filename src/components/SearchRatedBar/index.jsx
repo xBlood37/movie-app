@@ -16,12 +16,12 @@ const SearchRatedBar = () => {
   const items = [
     {
       key: '1',
-      label: `Search`,
+      label: `Поиск`,
       children: `Content of Tab Pane 1`,
     },
     {
       key: '2',
-      label: `Rated`,
+      label: `Рейтинг`,
       children: `Content of Tab Pane 2`,
     },
   ];

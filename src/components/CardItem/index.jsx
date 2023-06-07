@@ -18,8 +18,8 @@ const CardItem = ({ items }) => {
             <Card aria-label={obj.title} cover={<img alt="" src={`https://image.tmdb.org/t/p/w500/${obj.poster_path}`} />} hoverable>
               <Meta title={obj.title} description={cutText(obj.overview, 100)} />
               <Descriptions>
-                <Descriptions.Item label="Genres">жанр</Descriptions.Item>
-                <Descriptions.Item label="Year">{obj.release_date}</Descriptions.Item>
+                <Descriptions.Item label="Жанр">жанр</Descriptions.Item>
+                <Descriptions.Item label="Год выпуска">{obj.release_date}</Descriptions.Item>
               </Descriptions>
               <div className="rating-block">
                 <Rate />

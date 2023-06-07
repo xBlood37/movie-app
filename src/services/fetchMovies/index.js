@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default function fetchMovie(setFilms, url) {
+export function fetchMovie(setFilms, url) {
   const options = {
     method: 'GET',
     headers: {
@@ -10,7 +10,16 @@ export default function fetchMovie(setFilms, url) {
     },
   };
 
-  axios.get(url, options).then(({ data }) => {
-    setFilms(data.results);
-  });
+  const errorHandler = (err) => {
+    console.error(`Axios request failed, please check your api or url: ${err.stack}', `);
+    if (err.response) console.error('Response error, please check your api or url: ', err.response.data, err.response.status, err.response.headers);
+    if (err.request) console.error('Request error, please check your api or url: ', err.request);
+  };
+
+  axios
+    .get(url, options)
+    .catch((error) => errorHandler(error))
+    .then(({ data }) => {
+      setFilms(data.results);
+    });
 }
