@@ -22,4 +22,6 @@ export function fetchMovie(setFilms, url) {
     .then(({ data }) => {
       setFilms(data.results);
     });
+
+  window.scrollTo(0, 0);
 }

@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 import SearchForm from '../SearchForm';
 
-const SearchRatedBar = () => {
+const SearchRatedBar = ({ handleSubmit, handleChange }) => {
   const [openNav, setOpenNav] = useState(false);
 
   const toggle = {
@@ -47,7 +47,7 @@ const SearchRatedBar = () => {
           </button>
           <div className="collapse navbar-collapse" style={toggle} id="navbarColor01">
             <Tabs style={{ color: 'rgba(255 255 255)' }} className="nav-item me-auto" defaultActiveKey="1" items={items} />
-            <SearchForm />
+            <SearchForm handleChange={handleChange} handleSubmit={handleSubmit} />
           </div>
         </div>
       </nav>
