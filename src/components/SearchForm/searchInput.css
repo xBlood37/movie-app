@@ -9,12 +9,35 @@
 }
 
 .search-img > svg {
-  width: 28px;
-  height: 28px;
-  margin-left: 40%;
-  margin-top: 10px;
+  width: 23px;
+  height: 23px;
+  margin-left: 15px;
+  margin-top: 12px;
 }
 
 .btn {
+  position: relative;
   border-radius: 22px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.search-btn-img > svg {
+  width: 32px;
+  height: 32px;
+}
+
+.search-btn-img {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+.form {
+  border-radius: 22px;
+  transition: 100ms ease-in-out;
+}
+
+.form:hover {
+  box-shadow: 0 0 0 0.1rem #1677ff6c;
 }

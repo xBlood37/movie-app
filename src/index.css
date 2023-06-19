@@ -5,19 +5,39 @@
 }
 
 #root {
-  /* padding: 5px; */
   box-shadow: 4px 4px 28px 13px rgba(34, 60, 80, 0.2);
   max-width: 1240px;
-  background-color: #fff;
   width: 100%;
+  transition: 1s;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  padding: 5px;
   display: grid;
   place-items: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 320px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8c1535",endColorstr="#000000",GradientType=1);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  #root {
+    border-radius: 0;
+    border: none;
+  }
 }
 
 code {

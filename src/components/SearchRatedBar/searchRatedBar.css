@@ -30,3 +30,21 @@
     margin: 0 0 16px 0;
   }
 }
+
+.container-fluid {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.navbar {
+  border-radius: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    border-radius: 0;
+  }
+}
