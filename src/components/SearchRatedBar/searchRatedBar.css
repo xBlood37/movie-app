@@ -1,36 +1,3 @@
-.ant-tabs-content-holder {
-  display: none;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-}
-
-.ant-tabs-nav::before {
-  display: none;
-}
-
-:where(.css-dev-only-do-not-override-k7429z).ant-tabs-top > .ant-tabs-nav,
-:where(.css-dev-only-do-not-override-k7429z).ant-tabs-bottom > .ant-tabs-nav,
-:where(.css-dev-only-do-not-override-k7429z).ant-tabs-top > div > .ant-tabs-nav,
-:where(.css-dev-only-do-not-override-k7429z).ant-tabs-bottom > div > .ant-tabs-nav {
-  margin: 0;
-}
-
-:where(.css-dev-only-do-not-override-k7429z).ant-tabs .ant-tabs-tab {
-  padding: 0;
-}
-
-@media screen and (max-width: 991px) {
-  :where(.css-dev-only-do-not-override-k7429z).ant-tabs-top > .ant-tabs-nav,
-  :where(.css-dev-only-do-not-override-k7429z).ant-tabs-bottom > .ant-tabs-nav,
-  :where(.css-dev-only-do-not-override-k7429z).ant-tabs-top > div > .ant-tabs-nav,
-  :where(.css-dev-only-do-not-override-k7429z).ant-tabs-bottom > div > .ant-tabs-nav {
-    margin: 0 0 16px 0;
-  }
-}
-
 .container-fluid {
   transition: all 0.3s ease-in-out;
 }
@@ -47,4 +14,20 @@
   .navbar {
     border-radius: 0;
   }
+}
+
+.tab-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 17px;
+  color: gray;
+  padding: 8px;
+}
+
+.tab-button:hover {
+  color: white;
+}
+
+.navbar {
+  z-index: 999;
 }

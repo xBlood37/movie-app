@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import SearchForm from '../SearchForm';
 
-const SearchRatedBar = ({ handleSubmit, handleChange }) => {
+const SearchRatedBar = ({ handleChange }) => {
   const [openNav, setOpenNav] = useState(false);
 
   const toggleNavbar = {
@@ -12,7 +12,7 @@ const SearchRatedBar = ({ handleSubmit, handleChange }) => {
   };
 
   return (
-    <nav className="navbar rounded-bottom navbar-expand-lg bg-dark py-3" data-bs-theme="dark">
+    <nav className="navbar navbar-expand-lg bg-dark py-3" data-bs-theme="dark">
       <div className="container-fluid">
         <span className="navbar-brand">MovieLog</span>
         <button
@@ -30,17 +30,13 @@ const SearchRatedBar = ({ handleSubmit, handleChange }) => {
         <div className="collapse navbar-collapse" style={toggleNavbar} id="navbarColor01">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <a className="nav-link" link="">
-                Поиск
-              </a>
+              <button className="tab-button">Поиск</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link" link="">
-                Рейтинг
-              </a>
+              <button className="tab-button">Рейтинг</button>
             </li>
           </ul>
-          <SearchForm handleChange={handleChange} handleSubmit={handleSubmit} />
+          <SearchForm handleChange={handleChange} />
         </div>
       </div>
     </nav>

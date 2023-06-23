@@ -5,7 +5,6 @@ import { FaAngleUp } from 'react-icons/fa';
 
 function ScrollToTop() {
   const [showTopBtn, setShowTopBtn] = useState(false);
-
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) setShowTopBtn(true);
@@ -20,7 +19,7 @@ function ScrollToTop() {
     });
   };
 
-  return <div className="top-to-btm">{showTopBtn && <FaAngleUp className="icon-position icon-style" onClick={goToUp} />}</div>;
+  return <div className="top-to-btm">{showTopBtn && <FaAngleUp onClick={goToUp} className="icon-position icon-style" />}</div>;
 }
 
 export default ScrollToTop;

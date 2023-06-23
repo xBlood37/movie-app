@@ -1,14 +1,10 @@
 import axios from 'axios';
+import { debounce } from 'lodash';
 import React, { useEffect, useState } from 'react';
 
-import { fetchMovie } from '../../services/fetchMovies';
 import MovieCard from '../MovieCard';
 import ScrollToTop from '../ScrollToTop';
 import SearchRadetBar from '../SearchRatedBar';
-
-// Поиск должен происходить сразу после того, как пользователь ввел поисковый запрос (без нажатия на кнопку)
-// При вводе символов в поле ввода запросы не должны отправляться сразу в целях избежания лишних запросов на сервер. Дождитесь, пока пользователь допечатает.
-// Если поиск не дал результатов, должно отображаться сообщение об этом
 
 const App = () => {
   const [films, setFilms] = useState([]);
@@ -16,6 +12,18 @@ const App = () => {
   const [fetching, setFetching] = useState(true);
   const [inputValue, setInputValue] = useState('');
 
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMTlmNDVmZmFkMjVkZjIzYWU0YmMzODBiZmUwZDcyZiIsInN1YiI6IjY0N2RlMzFlY2Y0YjhiMDEyMjc3MjEyOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IW7VeL8I9KTtx9259oVN1Vub-visR3waR1RVkdwjPHc',
+    },
+  };
+
+  const baseUrl = `https://api.themoviedb.org/3/`;
+
+  // dynamic pagination
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
     return function () {
@@ -24,26 +32,16 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    try {
-      if (fetching) {
-        const options = {
-          method: 'GET',
-          headers: {
-            accept: 'application/json',
-            Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMTlmNDVmZmFkMjVkZjIzYWU0YmMzODBiZmUwZDcyZiIsInN1YiI6IjY0N2RlMzFlY2Y0YjhiMDEyMjc3MjEyOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IW7VeL8I9KTtx9259oVN1Vub-visR3waR1RVkdwjPHc',
-          },
-        };
-        const url = `https://api.themoviedb.org/3/trending/movie/week?language=ru-RU&page=${current}`;
-        axios.get(url, options).then(({ data }) => {
+    if (fetching) {
+      const url = `${baseUrl}trending/movie/week?language=ru-RU&page=${current}`;
+      axios
+        .get(url, options)
+        .then(({ data }) => {
           setFilms([...films, ...data.results]);
-        });
-        setCurrent((prevState) => prevState + 1);
-      }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setFetching(false);
+        })
+        .catch((error) => console.log(error))
+        .finally(setFetching(false));
+      setCurrent((prevState) => prevState + 1);
     }
   }, [fetching]);
 
@@ -53,22 +51,24 @@ const App = () => {
     }
   };
 
+  // Search
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (inputValue === '') return;
-    const nameUpdate = inputValue.replace(' ', '+');
-    const url = `https://api.themoviedb.org/3/search/movie?query=${nameUpdate}&include_adult=false&language=ru-US&page=1&region=ru`;
-    fetchMovie(setFilms, url);
-  };
+  useEffect(() => {
+    const url = `${baseUrl}search/movie?query=${inputValue}&include_adult=false&language=ru-US&region=ru`;
+    const res = axios.get(url, options).then(({ data }) => data.results);
+    res.then((item) => {
+      if (item.length === 0) return;
+      setFilms([...item]);
+    });
+  }, [inputValue]);
 
   return (
     <>
       <header className="header">
-        <SearchRadetBar handleChange={handleChange} handleSubmit={handleSubmit} />
+        <SearchRadetBar handleChange={debounce((e) => handleChange(e), 320)} />
       </header>
       <main className="main">
         <MovieCard films={films} />

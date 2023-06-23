@@ -10,13 +10,19 @@ import './cardItem.css';
 
 import { Tooltip } from 'antd';
 
-import cutText from '../../services/catText';
-
 const CardItem = ({ items }) => {
   const fade = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
+    to: { opacity: 1, translateY: '0' },
+    from: { opacity: 0, translateY: '-80px' },
+    delay: 400,
   });
+
+  const cutText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    let newText = text.slice(0, maxLength);
+    let index = newText.lastIndexOf(' ');
+    return newText.slice(0, index) + '...';
+  };
 
   return (
     <>
