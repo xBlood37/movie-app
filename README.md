@@ -4,6 +4,9 @@ A starter for React with Typescript with the fast Vite and all static code testi
 
 I found out about Vite and I wanted to have a boilerplate for the technologies that I use. You can find more about these in the following links: [Vite](https://github.com/vitejs/vite), [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/), [Eslint](https://eslint.org/), [Prettier](https://prettier.io/).
 
+# MOVIELOG SOURCE CODE
+![movie](https://github.com/xBlood37/movie-app/assets/108807631/e5d6a084-0015-4c6b-bc5f-1611428abfa6)
+
 ## Installation
 
 Clone the repo and run `yarn install`
